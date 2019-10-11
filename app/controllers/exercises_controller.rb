@@ -5,4 +5,7 @@ class ExercisesController < ApplicationController
 
         redirect_to workout_path(@workout)
     end 
+    def show 
+        @exercise = Exercise.find(params[:id])
+    end 
 end
