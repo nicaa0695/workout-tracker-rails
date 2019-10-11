@@ -1,0 +1,16 @@
+<h1>Edit Workout</h1>
+<%= form_for @workout do |f| %>
+  <%= f.label 'Date:' %><br>
+  <%= f.text_field :date %><br><br>
+ 
+  <%= f.label 'You focused on:' %><br>
+  <%= f.text_area :training %><br><br>
+
+  <%= f.label 'You were feeling:' %><br>
+  <%= f.text_area :mood %><br><br>
+
+  <%= f.label 'You worked out for:' %><br>
+  <%= f.text_area :length %><br><br>
+ 
+  <%= f.submit "Update Workout" %>
+<% end %>

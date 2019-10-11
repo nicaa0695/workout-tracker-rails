@@ -22,12 +22,18 @@ class WorkoutsController < ApplicationController
     end 
 
     def edit
+        @workout = Workout.find(params[:id])
     end
     
     def update
+        @workout = Workout.find(params[:id])
+        @workout.update(date: params[:workout][:date], training: params[:workout][:training], mood: params[:workout][:mood], length: params[:workout][:length])
+        redirect_to workout_path(@workout)
     end 
 
     def destroy 
+        @workout.destroy
+        redirect_to root_path
     end 
 
 
