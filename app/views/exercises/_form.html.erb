@@ -1,0 +1,12 @@
+<%= form_for([@workout, @workout.exercises.build]) do |f| %>
+    <%= f.label 'Name:' %><br>
+    <%= f.text_field :name %><br><br>
+
+    <%= f.label 'Sets:' %><br>
+    <%= f.text_field :sets %><br><br>
+
+    <%= f.label 'Reps:' %><br>
+    <%= f.text_field :reps %><br><br>
+
+    <%= f.submit "Add Exercise" %>
+    <% end %>
