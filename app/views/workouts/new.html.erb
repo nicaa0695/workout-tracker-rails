@@ -1,0 +1,6 @@
+<h1>New Workout</h1>
+<%= form_tag workouts_path do %>
+ <%= render 'form' %>
+ <%= submit_tag "Create Workout" %><br>
+ <%= link_to "Cancel", root_path %>
+<% end %>
