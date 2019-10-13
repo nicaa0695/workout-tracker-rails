@@ -1,8 +1,9 @@
-<h2><%= link_to "Create a new workout here!", new_workout_path %></h2><br>
-<% @workouts.each do |workout| %>
-<h3><%= link_to workout.date.strftime("%A, %B %m"), workout %>
-<h4>You focused on:</h4>
-<p><%= workout.training %><br><br>
--------------------------------------
-<br>
-<% end %>
+#index_workouts
+    <h2><%= link_to "Create a new workout here!", new_workout_path %></h2><br>
+    <% @workouts.each do |workout| %>
+    <h3><%= link_to workout.date.strftime("%A, %B %m"), workout %>
+    <h4>You focused on:</h4>
+    <p><%= workout.training %><br><br>
+    -------------------------------------
+    <br>
+    <% end %>
