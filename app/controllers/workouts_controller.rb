@@ -19,7 +19,12 @@ class WorkoutsController < ApplicationController
         @workout.mood = params[:mood]
         @workout.length = params[:length]
         @workout.save
-        redirect_to workout_path(@workout)
+        if @workout.save 
+            redirect_to workout_path(@workout)
+        else 
+            render :new
+        end
+
     end 
 
     def edit
