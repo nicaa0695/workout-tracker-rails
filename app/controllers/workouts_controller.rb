@@ -1,6 +1,7 @@
 class WorkoutsController < ApplicationController
     skip_before_action :authenticate_user!, only: [:index]
     before_action :find_workout, only: [:show, :edit, :update, :destroy]
+    helper_method :params
     def index
         @workouts = Workout.all 
     end

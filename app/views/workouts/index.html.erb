@@ -1,4 +1,17 @@
 <h2><%= link_to "Create a new workout here!", new_workout_path %></h2><br>
+
+<% if !params[:workout].blank? %>
+  <% @workouts = Workout.where(training: params[:training]) %>
+<% end %>
+
+<div>
+  <h3>Filter Workouts:</h3>
+  <%= form_tag("/workouts", method: "get") do %>
+    <%= select_tag "workout", options_from_collection_for_select(Workout.all, "date", "training"), include_blank: true %>
+    <%= submit_tag "Filter" %>
+  <% end %>
+</div>
+
 <% @workouts.each do |workout| %>
 <h3><%= link_to workout.date.strftime("%A, %B %m"), workout %>
 <h4>You focused on:</h4>
