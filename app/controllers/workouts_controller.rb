@@ -13,12 +13,12 @@ class WorkoutsController < ApplicationController
     end 
 
     def create 
-        @workout = Workout.new
-        @workout.date = params[:date]
-        @workout.training = params[:training]
-        @workout.mood = params[:mood]
-        @workout.length = params[:length]
-        @workout.save
+        @workout = current_user.workouts.build(workout_params)
+        #@workout.date = params[:date]
+        #@workout.training = params[:training]
+        #@workout.mood = params[:mood]
+        #@workout.length = params[:length]
+        #@workout.save
         if @workout.save 
             redirect_to workout_path(@workout)
         else 

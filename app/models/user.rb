@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   validates :email, presence: true
   validates :email, uniqueness: :true
-  has_many :workouts, through: :exercises
+  has_many :workouts
+  has_many :exercises, through: :workouts
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
