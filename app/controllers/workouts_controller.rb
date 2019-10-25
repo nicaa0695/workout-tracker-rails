@@ -5,7 +5,8 @@ class WorkoutsController < ApplicationController
     def index
         if params[:training]
             @workouts = Workout.by_training(params[:training])
-            @filter = params[:training]
+            # @filter = params[:training]
+            
         else
             @workouts = Workout.all 
         end
@@ -20,11 +21,6 @@ class WorkoutsController < ApplicationController
 
     def create 
         @workout = current_user.workouts.build(workout_params)
-        #@workout.date = params[:date]
-        #@workout.training = params[:training]
-        #@workout.mood = params[:mood]
-        #@workout.length = params[:length]
-        #@workout.save
         if @workout.save 
             redirect_to workout_path(@workout)
         else 
@@ -34,10 +30,12 @@ class WorkoutsController < ApplicationController
     end 
 
     def edit
+        redirect_if_wrong_user
         @workout = Workout.find(params[:id])
     end
     
     def update
+        redirect_if_wrong_user
         @workout = Workout.find(params[:id])
         @workout.update(date: params[:workout][:date], training: params[:workout][:training], mood: params[:workout][:mood], length: params[:workout][:length])
         redirect_to workout_path(@workout)
@@ -47,7 +45,7 @@ class WorkoutsController < ApplicationController
     def destroy 
         redirect_if_wrong_user
         @workout.destroy
-        # redirect_to root_path
+        redirect_to workouts_path
     end
 
 
@@ -58,7 +56,7 @@ class WorkoutsController < ApplicationController
         if current_user != @workout.user
             flash[:message] = "You can't edit or delete a workout from another user."
             redirect_to workouts_path
-            # redirect_to user_path(current_user)
+            # redirect_to user_session_path(current_user)
         end
     end
 

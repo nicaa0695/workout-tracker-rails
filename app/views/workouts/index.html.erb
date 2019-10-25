@@ -3,6 +3,7 @@
 <div>
   <h3>Filter Workouts:</h3>
   <%= form_tag("/workouts", method: "get") do %>
+  <%# <%= text_field_tag :training, params[:training] %> %>
     <%= select_tag :training, options_for_select(Workout.all.pluck(:training), selected: @filter), include_blank: true %>
     <%= submit_tag "Filter" %>
   <% end %>
