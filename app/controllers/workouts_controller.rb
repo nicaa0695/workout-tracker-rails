@@ -43,25 +43,30 @@ class WorkoutsController < ApplicationController
         redirect_to workout_path(@workout)
     end 
 
+
     def destroy 
         redirect_if_wrong_user
         @workout.destroy
-        redirect_to root_path
+        # redirect_to root_path
     end
 
 
 
     private 
+
     def redirect_if_wrong_user
         if current_user != @workout.user
-            redirect_to user_path(current_user)
+            flash[:message] = "You can't edit or delete a workout from another user."
+            redirect_to workouts_path
+            # redirect_to user_path(current_user)
         end
     end
+
     def workout_params
         params.permit(:date, :training, :mood, :length) 
     end 
 
     def find_workout
         @workout = Workout.find(params[:id])
-    end 
+    end  
 end
