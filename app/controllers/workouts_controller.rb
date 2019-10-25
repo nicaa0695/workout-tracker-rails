@@ -1,9 +1,14 @@
 class WorkoutsController < ApplicationController
     skip_before_action :authenticate_user!, only: [:index]
     before_action :find_workout, only: [:show, :edit, :update, :destroy]
-    helper_method :params
+
     def index
-        @workouts = Workout.all 
+        if params[:training]
+            @workouts = Workout.by_training(params[:training])
+            @filter = params[:training]
+        else
+            @workouts = Workout.all 
+        end
     end
 
     def show
@@ -39,13 +44,19 @@ class WorkoutsController < ApplicationController
     end 
 
     def destroy 
+        redirect_if_wrong_user
         @workout.destroy
         redirect_to root_path
-    end 
+    end
+
 
 
     private 
-
+    def redirect_if_wrong_user
+        if current_user != @workout.user
+            redirect_to user_path(current_user)
+        end
+    end
     def workout_params
         params.permit(:date, :training, :mood, :length) 
     end 
