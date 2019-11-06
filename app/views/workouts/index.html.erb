@@ -1,18 +1,18 @@
-<h2><%= link_to "Create a new workout here!", new_workout_path %></h2><br>
+<h2 style="text-align: center"><%= link_to "Create A New Workout Here", new_workout_path %></h2><br>
 
 <div>
-  <h3>Filter Workouts:</h3>
+  <h2 style="text-align: center">Filter Workouts:</h2>
   <%= form_tag("/workouts", method: "get") do %>
-  <%# <%= text_field_tag :training, params[:training] %> %>
-    <%= select_tag :training, options_for_select(Workout.all.pluck(:training), selected: @filter), include_blank: true %>
-    <%= submit_tag "Filter" %>
+  <%# <%= text_field_tag :training, params[:training] %> 
+    <h2 style="text-align: center"><%= select_tag :training, options_for_select(Workout.all.pluck(:training), selected: @filter), include_blank: true %></h2>
+    <h2 style="text-align: center"><%= submit_tag "Filter" %></h2>
   <% end %>
 </div>
 
 <% @workouts.each do |workout| %>
-<h3><%= link_to workout.date.strftime("%A, %B %m"), workout %>
-<h4>You focused on:</h4>
-<p><%= workout.training %><br><br>
+<h3 style="text-align: center"><%= link_to workout.date.strftime("%A, %B %m"), workout %>
+<h4 style="text-align: center">You focused on:</h4>
+<p style="text-align: center"><%= workout.training %><br><br>
 -------------------------------------
 <br>
 <% end %>

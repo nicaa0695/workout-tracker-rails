@@ -1,6 +1,6 @@
-<h1>New Workout</h1>
+<h1 style="text-align: center">New Workout</h1>
 <%= form_tag workouts_path do %>
- <%= render 'form' %>
- <%= submit_tag "Create Workout" %><br>
- <%= link_to "Cancel", root_path %>
+ <h2 style="text-align: center"><%= render 'form' %></h2>
+ <h2 style="text-align: center"><%= submit_tag "Create Workout" %><br></h2>
+ <h2 style="text-align: center"><%= link_to "Cancel", root_path %></h2>
 <% end %>

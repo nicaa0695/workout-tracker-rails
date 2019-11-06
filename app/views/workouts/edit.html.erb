@@ -1,16 +1,17 @@
-<h1>Edit Workout</h1>
+<h1 style="text-align: center">Edit Workout</h1>
 <%= form_for @workout do |f| %>
-  <%= f.label 'Date:' %><br>
-  <%= f.text_field :date %><br><br>
+  
+  <h3 style="text-align: center"><%= f.label 'Date:' %></h3>
+  <h1 style="text-align: center"><%= f.text_field :date %></h1>
  
-  <%= f.label 'You focused on:' %><br>
-  <%= f.text_area :training %><br><br>
+  <h3 style="text-align: center"><%= f.label 'You focused on:' %><br></h3>
+  <h1 style="text-align: center"><%= f.text_area :training %></h1>
 
-  <%= f.label 'You were feeling:' %><br>
-  <%= f.text_area :mood %><br><br>
+  <h3 style="text-align: center"><%= f.label 'You were feeling:' %><br></h3>
+  <h1 style="text-align: center"><%= f.text_area :mood %></h1>
 
-  <%= f.label 'You worked out for:' %><br>
-  <%= f.text_area :length %><br><br>
+  <h3 style="text-align: center"><%= f.label 'You worked out for:' %><br></h3>
+  <h1 style="text-align: center"><%= f.text_area :length %></h1>
  
-  <%= f.submit "Update Workout" %>
+  <h1 style="text-align: center"><%= f.submit "Update Workout" %></h1>
 <% end %>

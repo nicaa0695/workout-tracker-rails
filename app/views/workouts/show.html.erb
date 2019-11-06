@@ -1,15 +1,15 @@
-<h2><%= link_to "Edit This Workout", edit_workout_path(@workout) %></h2>
-<h1>Date:</h1>
-<h4><%= @workout.date %><br><br>
-<h1>You focused on:</h1>
-<h4><%= @workout.training %><br><br>
-<h1>You were feeling:</h1>
-<h4><%= @workout.mood   %><br><br>
-<h1>You worked out for:</h1>
-<h4><%= @workout.length %><br><br>
-<h1>Exercises:</h1>
-<%= render @workout.exercises %>
-<h1>Add an Exercise:</h1>
-<%= render 'exercises/form' %>
- <%= link_to "Go Back to All Workouts", root_path %><br> or <br>
-<%= link_to "Delete This Workout", workout_path(@workout), method: :delete %>
+<h2 style="text-align: center"><%= link_to "Edit This Workout", edit_workout_path(@workout) %></h2>
+<h1 style="text-align: center">Date:</h1>
+<h4 style="text-align: center"><%= @workout.date %><br><br></h4>
+<h1 style="text-align: center">You focused on:</h1>
+<h4 style="text-align: center"><%= @workout.training %><br><br>
+<h1 style="text-align: center">You were feeling:</h1>
+<h4 style="text-align: center"><%= @workout.mood   %><br><br>
+<h1 style="text-align: center">You worked out for:</h1>
+<h4 style="text-align: center"><%= @workout.length %><br><br>
+<h1 style="text-align: center">Exercises:</h1>
+<h1><%= render @workout.exercises %></h1>
+<h1 style="text-align: center">Add an Exercise:</h1>
+<h2 style="text-align: center"><%= render 'exercises/form' %></h2>
+<h2 style="text-align: center"><%= link_to "Go Back to All Workouts", root_path %><br> or <br>
+<h2 style="text-align: center"><%= link_to "Delete This Workout", workout_path(@workout), method: :delete %>
